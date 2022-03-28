@@ -1,13 +1,17 @@
 package net.roma.librarydemo.controllers.dto;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
 @MappedSuperclass
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public abstract class AbstractDto implements Serializable {
 
     private Long id;
+
 }

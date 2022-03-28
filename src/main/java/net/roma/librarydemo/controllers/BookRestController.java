@@ -18,6 +18,7 @@ import java.util.List;
 @RequestMapping("/api/book/")
 @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class BookRestController {
 
     private final BookService bookService;

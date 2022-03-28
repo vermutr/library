@@ -1,6 +1,7 @@
 package net.roma.librarydemo.controllers;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.roma.librarydemo.configutaion.DetailsConverter;
 import net.roma.librarydemo.controllers.dto.AuthorDto;
 import net.roma.librarydemo.model.Author;
@@ -13,11 +14,12 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-
+@Slf4j
 @RestController
 @RequestMapping("/api/author/")
 @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class AuthorRestController {
 
     private final AuthorService authorService;

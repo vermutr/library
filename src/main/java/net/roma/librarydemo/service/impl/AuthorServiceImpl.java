@@ -20,7 +20,7 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Author getById(Long id) {
         log.info("In UserServiceImpl getById {}", id);
-        return authorRepository.getOne(id);
+        return authorRepository.getById(id);
     }
 
     @Override

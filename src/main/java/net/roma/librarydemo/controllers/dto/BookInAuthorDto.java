@@ -1,19 +1,16 @@
 package net.roma.librarydemo.controllers.dto;
 
-import lombok.*;
-
-import java.util.Set;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class BookDto extends AbstractDto {
+public class BookInAuthorDto {
 
     private String name;
     private String isbn;
     private String bookAnnotation;
     private String genreOfBook;
     private String numberOfPages;
-    private Set<AuthorInBookDto> authors;
 
 }

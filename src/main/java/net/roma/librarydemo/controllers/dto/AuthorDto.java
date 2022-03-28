@@ -1,20 +1,15 @@
 package net.roma.librarydemo.controllers.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.util.List;
+import java.util.Set;
+
 
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class AuthorDto extends AbstractDto{
+@RequiredArgsConstructor
+public class AuthorDto extends AbstractDto {
 
-    private String author;
-    private List<BookDto> books;
-
+    private String name;
+    private Set<BookInAuthorDto> books;
 
 }

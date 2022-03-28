@@ -18,25 +18,25 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book getById(Long id) {
-        log.info("In UserServiceImpl getById {}", id);
-        return bookRepository.getOne(id);
+        log.info("In BookServiceImpl getById {}", id);
+        return bookRepository.getById(id);
     }
 
     @Override
     public Book save(Book book) {
-        log.info("In UserServiceImpl save {}", book);
+        log.info("In BookServiceImpl save {}", book);
         return bookRepository.save(book);
     }
 
     @Override
     public void delete(Book book) {
-        log.info("In UserServiceImpl delete {}", book);
+        log.info("In BookServiceImpl delete {}", book);
         bookRepository.delete(book);
     }
 
     @Override
     public List<Book> getAll() {
-        log.info("In UserServiceImpl getAll");
+        log.info("In BookServiceImpl getAll");
         return bookRepository.findAll();
     }
 

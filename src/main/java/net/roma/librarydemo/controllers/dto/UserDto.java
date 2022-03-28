@@ -13,4 +13,5 @@ public class UserDto extends AbstractDto {
     private String lastName;
     private String username;
     private String password;
+
 }

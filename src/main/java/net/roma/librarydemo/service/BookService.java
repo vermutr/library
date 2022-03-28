@@ -5,6 +5,7 @@ import net.roma.librarydemo.model.Book;
 import java.util.List;
 
 public interface BookService {
+
     Book getById(Long id);
 
     Book save(Book book);
