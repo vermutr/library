@@ -6,12 +6,14 @@ import net.roma.librarydemo.configutaion.DetailsConverter;
 import net.roma.librarydemo.controllers.dto.BookDto;
 import net.roma.librarydemo.model.Book;
 import net.roma.librarydemo.service.BookService;
+import net.roma.librarydemo.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -23,6 +25,7 @@ public class BookRestController {
 
     private final BookService bookService;
     private final DetailsConverter converter;
+    private final UserService userService;
 
     @GetMapping(value = "{id}")
     public BookDto getBook(@PathVariable("id") @NotNull final Long bookId) {
@@ -49,8 +52,15 @@ public class BookRestController {
     }
 
     @GetMapping(value = "")
-    public List<BookDto> getAllUsers() {
+    public List<BookDto> getAllBooks() {
         return converter.convertList(this.bookService.getAll(), BookDto.class);
+    }
+
+    @GetMapping(value = "basket")
+    public List<BookDto> getAllBasketBooks(Principal principal) {
+        Long userId = userService.findByUsername(principal.getName()).get().getId();
+        final List<Book> userBooks = this.bookService.getBooksByUserId(userId);
+        return converter.convertList(userBooks, BookDto.class);
     }
 
 

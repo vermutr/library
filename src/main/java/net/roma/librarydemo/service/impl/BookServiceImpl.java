@@ -40,4 +40,9 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findAll();
     }
 
+    @Override
+    public List<Book> getBooksByUserId(Long userId) {
+        return bookRepository.getBooksByUserId(userId);
+    }
+
 }

@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -13,7 +13,7 @@ public class UserBookDto extends AbstractDto{
 
     private Long idUser;
     private Long idBook;
-    private LocalDateTime creationDate;
+    private LocalDate creationDate;
     private boolean isDebtor;
 
 }

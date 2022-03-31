@@ -14,4 +14,6 @@ public interface BookService {
 
     List<Book> getAll();
 
+    List<Book> getBooksByUserId(Long userId);
+
 }

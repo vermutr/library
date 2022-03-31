@@ -8,7 +8,7 @@ import lombok.ToString;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -22,7 +22,7 @@ public class UserBook extends AbstractEntity {
 
     private Long idBook;
 
-    private LocalDateTime creationDate;
+    private LocalDate creationDate;
 
     @Column(columnDefinition = "boolean default false")
     private boolean isDebtor;
