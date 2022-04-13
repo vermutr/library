@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.roma.librarydemo.model.Author;
 import net.roma.librarydemo.repository.AuthorRepository;
 import net.roma.librarydemo.service.AuthorService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,9 +37,11 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<Author> getAll() {
+    public List<Author> getAll(Pageable pageable) {
         log.info("In UserServiceImpl getAll");
-        return authorRepository.findAll();
+        return authorRepository
+                .findAll(pageable)
+                .getContent();
     }
 
 }

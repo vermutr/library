@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import net.roma.librarydemo.model.Book;
 import net.roma.librarydemo.repository.BookRepository;
 import net.roma.librarydemo.service.BookService;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,9 +37,10 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> getAll() {
-        log.info("In BookServiceImpl getAll");
-        return bookRepository.findAll();
+    public List<Book> getAll(Pageable pageable) {
+        return bookRepository
+                .findAll(pageable)
+                .getContent();
     }
 
     @Override

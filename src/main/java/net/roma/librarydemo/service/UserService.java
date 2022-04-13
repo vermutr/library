@@ -1,6 +1,7 @@
 package net.roma.librarydemo.service;
 
 import net.roma.librarydemo.model.User;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +14,7 @@ public interface UserService {
 
     void delete(User user);
 
-    List<User> getAll();
+    List<User> getAll(Pageable pageable);
 
     Optional<User> findByUsername(String username);
 

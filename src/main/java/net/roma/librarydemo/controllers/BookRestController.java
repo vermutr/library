@@ -7,6 +7,10 @@ import net.roma.librarydemo.controllers.dto.BookDto;
 import net.roma.librarydemo.model.Book;
 import net.roma.librarydemo.service.BookService;
 import net.roma.librarydemo.service.UserService;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -52,8 +56,8 @@ public class BookRestController {
     }
 
     @GetMapping(value = "")
-    public List<BookDto> getAllBooks() {
-        return converter.convertList(this.bookService.getAll(), BookDto.class);
+    public List<BookDto> getAllBooks(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+            return converter.convertList(this.bookService.getAll(pageable), BookDto.class);
     }
 
     @GetMapping(value = "basket")

@@ -7,6 +7,7 @@ import net.roma.librarydemo.model.Status;
 import net.roma.librarydemo.model.User;
 import net.roma.librarydemo.repository.UserRepository;
 import net.roma.librarydemo.service.UserService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -43,9 +44,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAll() {
+    public List<User> getAll(Pageable pageable) {
         log.info("In UserServiceImpl getAll");
-        return userRepository.findAll();
+        return userRepository
+                .findAll(pageable)
+                .getContent();
     }
 
     @Override
