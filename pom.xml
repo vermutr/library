@@ -87,6 +87,11 @@
             <artifactId>orika-core</artifactId>
             <version>1.5.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>hello-starter</artifactId>
+            <version>0.0.3</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
